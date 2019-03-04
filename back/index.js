@@ -109,11 +109,16 @@ app.post('/profile', (req, res) => {
     let name = profile.name
     let filename = profile.image
     let description = profile.description
+    let user = profile.user
     console.log(filename)
-Profile.create({name: name , filename: filename, description: description}, function (err, profile){
+Profile.create({name: name , filename: filename, description: description, user : user}, function (err, profile){
 
 })
 })
+
+app.get('/profiles', (req,res) => {
+    Profile.find({}).sort('name').exec((err, feedback) => res.json(feedback));
+  })
 
 app.post('/registerUser', (req,res) => {
 

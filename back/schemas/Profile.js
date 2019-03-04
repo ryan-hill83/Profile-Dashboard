@@ -9,6 +9,7 @@ const profileSchema = new Schema({
   name: String,
   filename: String,
   description: String,
+  user: String,
   created_at: { type: Date, default: Date.now }
 });
 
