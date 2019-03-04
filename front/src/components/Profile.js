@@ -3,9 +3,7 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const ALL_PROFILES_URL = 'http://localhost:8080/profiles'
-
-let allProfiles = [] 
+const ALL_PROFILES_URL = 'https://theprofiledashboardserver.herokuapp.com/profiles'
 
 class Profile extends Component{
 
@@ -26,14 +24,6 @@ class Profile extends Component{
         })
       }
 
-      // filterProfiles = (profiles) => {
-      //     let user = this.props.user
-      //     console.log(this.props.user)
-      //     for(let i = 0; i < this.state.profiles.length; i++){
-      //       if(profiles[i].user && profiles[i].user === user._id){
-      //         allProfiles.push(profiles[i])           
-      //       }}
-      // }
 
       handleTextBoxOnChange = e => {
         this.setState({
@@ -58,7 +48,7 @@ class Profile extends Component{
       fileUploadHandler = () => {
           const fd = new FormData()
           fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-          axios.post('http://localhost:8080/upload', fd, {
+          axios.post('https://theprofiledashboardserver.herokuapp.com/upload', fd, {
               onUploadProgress: progressEvent => {
                   console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
               }
@@ -69,10 +59,12 @@ class Profile extends Component{
       }
 
       handleSubmitButtonClick = () => {
+        this.fileUploadHandler()
         let profile = this.state.profile
-        axios.post('http://localhost:8080/profile', {
+        axios.post('https://theprofiledashboardserver.herokuapp.com/profile', {
         profile
         })
+        this.render()
       }
 
 
@@ -82,7 +74,7 @@ class Profile extends Component{
             if(profile.user === user._id){
         return <li key={index}>
         <h3>{profile.name}</h3>
-        <img key={index} src={'http://localhost:8080/image/' + profile.filename}/>
+        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename}/>
         <h3>{profile.description}</h3>
       </li>} })
   
@@ -93,7 +85,6 @@ class Profile extends Component{
             <input type="text" name = "name" placeholder="Name" onChange={this.handleTextBoxOnChange}/>
             <p>Profile Picture</p>
             <input type="file" name = "image" onChange={this.fileSelectedHandler}/>
-            <button onClick={this.fileUploadHandler}>Upload</button>
             <p>Description</p>
             <input type="text" name = "description" placeholder="Name" onChange={this.handleTextBoxOnChange}/><br/>
             <button onClick={this.handleSubmitButtonClick}>Submit</button>

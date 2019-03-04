@@ -32,7 +32,7 @@ class Login extends Component {
     
         let user = this.state.newUser
     
-        axios.post('http://localhost:8080/login', {
+        axios.post('https://theprofiledashboardserver.herokuapp.com/login', {
         user
         })
         .then((response) => {
@@ -87,7 +87,7 @@ class Login extends Component {
         let newUser = this.state.newUser
     
         if(newUser.confirmPassword === newUser.password){
-          axios.post('http://localhost:8080/registerUser', {
+          axios.post('https://theprofiledashboardserver.herokuapp.com/registerUser', {
           newUser
           })
           .then((response) => {

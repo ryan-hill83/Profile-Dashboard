@@ -110,10 +110,8 @@ app.post('/profile', (req, res) => {
     let filename = profile.image
     let description = profile.description
     let user = profile.user
-    console.log(filename)
-Profile.create({name: name , filename: filename, description: description, user : user}, function (err, profile){
 
-})
+   Profile.findOneAndUpdate({user: user}, {name: name , filename: filename, description: description, user : user}, {upsert:true}, function(err, doc){} )
 })
 
 app.get('/profiles', (req,res) => {
