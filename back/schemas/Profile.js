@@ -6,9 +6,11 @@ const Schema = mongoose.Schema,
 
 const profileSchema = new Schema({
   id: ObjectId,
-  firstName: String,
+  name: String,
+  filename: String,
+  description: String,
   created_at: { type: Date, default: Date.now }
 });
 
-const User = model('Profile', profileSchema);
-module.exports = User
+const Profile= model('Profile', profileSchema);
+module.exports = Profile

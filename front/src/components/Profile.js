@@ -8,7 +8,8 @@ class Profile extends Component{
       }
 
       handleTextBoxOnChange = e => {
-    
+        console.log(e.target.name)
+        console.log(e.target.value)
         this.setState({
           profile : {
             ...this.state.profile,
@@ -19,7 +20,11 @@ class Profile extends Component{
 
       fileSelectedHandler = e => {
         this.setState({
-            selectedFile: e.target.files[0]
+            selectedFile: e.target.files[0],
+            profile: {
+              ...this.state.profile,
+            [e.target.name] : e.target.files[0].name
+            }
         })
       }
 
@@ -36,6 +41,13 @@ class Profile extends Component{
           })
       }
 
+      handleSubmitButtonClick = () => {
+        let profile = this.state.profile
+        axios.post('http://localhost:8080/profile', {
+        profile
+        })
+      }
+
     render(){
 
         return(
@@ -46,7 +58,8 @@ class Profile extends Component{
             <input type="file" name = "image" onChange={this.fileSelectedHandler}/>
             <button onClick={this.fileUploadHandler}>Upload</button>
             <p>Description</p>
-            <input type="text" name = "name" placeholder="Name" onChange={this.handleTextBoxOnChange}/>
+            <input type="text" name = "description" placeholder="Name" onChange={this.handleTextBoxOnChange}/><br/>
+            <button onClick={this.handleSubmitButtonClick}>Submit</button>
         </div>
         );
     }

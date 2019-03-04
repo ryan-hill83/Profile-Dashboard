@@ -49,7 +49,8 @@ const storage = new GridFsStorage({
           if (err) {
             return reject(err);
           }
-          const filename = buf.toString('hex') + path.extname(file.originalname);
+      //    const filename = buf.toString('hex') + path.extname(file.originalname);
+          const filename = file.originalname
           const fileInfo = {
             filename: filename,
             bucketName: 'images'
@@ -102,6 +103,18 @@ app.get('/image/:filename', (req, res) => {
     }) 
 })
 
+app.post('/profile', (req, res) => {
+    
+    let profile = req.body.profile
+    let name = profile.name
+    let filename = profile.image
+    let description = profile.description
+    console.log(filename)
+Profile.create({name: name , filename: filename, description: description}, function (err, profile){
+
+})
+})
+
 app.post('/registerUser', (req,res) => {
 
   let newUser = req.body.newUser
@@ -144,7 +157,6 @@ app.post('/login', (req,res) => {
   console.log(user)
   let password = user.password
   let email = user.email
-
 
   User.findOne({email: email},(error,user) => {
     if(!user){

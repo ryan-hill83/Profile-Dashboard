@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -38,14 +40,10 @@ class Login extends Component {
           this.setState({
             message : response.data.message
           })
-          if(response.data.isAdmin){
-            this.props.isAdmin()
-            this.props.sendUserInfo(response.data.user)
-            this.props.history.push('/appointments')
-          } else if(response.data.isAuthenticated){
+          if(response.data.isAuthenticated){
             this.props.isAuthenticated()
             this.props.sendUserInfo(response.data.user)
-            this.props.history.push('/appointmentCreate')
+            this.props.history.push('/profile')
           }
         })
         .catch(function (error) {
@@ -65,6 +63,7 @@ class Login extends Component {
             message : 'Please enter a valid email...'
           })
         }
+        else{this.validatePassword()}
       }
     
       validatePassword = () => {
@@ -159,4 +158,11 @@ class Login extends Component {
     }
     
 
-export default Login;
+    const mapDispatchToProps = (dispatch) => {
+      return {
+        isAuthenticated : () => dispatch({ type : "LOG_IN_USER"}),
+        sendUserInfo : (user) => dispatch({ type : "SEND_USER_INFO", user : user })
+      }
+    }
+    
+    export default connect(null, mapDispatchToProps)(withRouter(Login))
