@@ -26,7 +26,7 @@ class Profile extends Component{
       fileUploadHandler = () => {
           const fd = new FormData()
           fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-          axios.post('https://theprofiledashboardserver.herokuapp.com/login', fd, {
+          axios.post('http://localhost:8080/upload', fd, {
               onUploadProgress: progressEvent => {
                   console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
               }
