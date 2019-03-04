@@ -6,6 +6,7 @@ import Login from'./components/Login';
 import Profile from './components/Profile';
 import AllProfiles from './components/AllProfiles';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 ReactDOM.render(
@@ -13,7 +14,7 @@ ReactDOM.render(
 <App>
 <Switch>
 <Route exact path="/" component = {Login}/>
-<Route path="/profile/:id" component = {Profile}/>
+<Route path="/profile" component = {Profile}/>
 <Route path="/profiles" component = {AllProfiles}/>
 </Switch>
 </App>
