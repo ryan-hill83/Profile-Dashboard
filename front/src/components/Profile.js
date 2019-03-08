@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const ALL_PROFILES_URL = 'https://theprofiledashboardserver.herokuapp.com/profiles'
+const ALL_PROFILES_URL = 'http://localhost:8080/profiles'
 
 class Profile extends Component{
 
@@ -48,7 +48,7 @@ class Profile extends Component{
       fileUploadHandler = () => {
           const fd = new FormData()
           fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-          axios.post('https://theprofiledashboardserver.herokuapp.com/upload', fd, {
+          axios.post('http://localhost:8080/upload', fd, {
               onUploadProgress: progressEvent => {
                   console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
               }
@@ -61,7 +61,7 @@ class Profile extends Component{
       handleSubmitButtonClick = () => {
         this.fileUploadHandler()
         let profile = this.state.profile
-        axios.post('https://theprofiledashboardserver.herokuapp.com/profile', {
+        axios.post('http://localhost:8080/profile', {
         profile
         })
         this.render()
@@ -74,7 +74,7 @@ class Profile extends Component{
             if(profile.user === user._id){
         return <li key={index}>
         <h3>{profile.name}</h3>
-        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename}/>
+        <img key={index} src={'http://localhost:8080/image/' + profile.filename}/>
         <h3>{profile.description}</h3>
       </li>} })
   

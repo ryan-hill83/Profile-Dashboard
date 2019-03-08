@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import '../App.css'
 
 class Login extends Component {
 
@@ -32,7 +33,7 @@ class Login extends Component {
     
         let user = this.state.newUser
     
-        axios.post('https://theprofiledashboardserver.herokuapp.com/login', {
+        axios.post('http://localhost:8080/login', {
         user
         })
         .then((response) => {
@@ -87,7 +88,7 @@ class Login extends Component {
         let newUser = this.state.newUser
     
         if(newUser.confirmPassword === newUser.password){
-          axios.post('https://theprofiledashboardserver.herokuapp.com/registerUser', {
+          axios.post('http://localhost:8080/registerUser', {
           newUser
           })
           .then((response) => {

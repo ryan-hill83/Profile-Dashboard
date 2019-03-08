@@ -1,13 +1,13 @@
 const express = require('express')
+var cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose');
 const mongodbURL = 'mongodb://profiles:epicride1@ds263493.mlab.com:63493/profiles'
-mongoose.connect(mongodbURL, { useNewUrlParser: true });
+mongoose.connect('mongodb://profiles:epicride1@ds263493.mlab.com:63493/profiles', { useNewUrlParser: true }, {useMongoClient:true});
 const db = mongoose.connection;
-const dotenv = require('dotenv');
-dotenv.load();
+const dotenv = require('dotenv').config();
 const PORT = process.env.PORT || 8080
 const Profile = require('./schemas/Profile')
 const User = require('./schemas/User')
@@ -23,6 +23,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+app.use(cors())
 app.use(methodOverride('_method'))
 
 app.use(function(req, res, next) {
@@ -31,6 +32,7 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   next();
 });
+app.options('*', cors())
 
 let gfs 
 
@@ -39,6 +41,7 @@ db.once('open', () => {
     gfs = Grid(db.db, mongoose.mongo)
     gfs.collection('images')
   console.log('connected to MongoDb...')
+  console.log(gfs)
 });
 
 const storage = new GridFsStorage({
@@ -66,27 +69,8 @@ const storage = new GridFsStorage({
         res.json({file: req.file})
   })
 
-  app.get('/files', (req, res) => {
-      gfs.files.find().toArray((err, files) => {
-            if(!files || files.length === 0){
-                return res.status(404).json({
-                    err: 'No files exist'
-                })
-            }
-            return res.json(files)
-      })
-  })
 
-  app.get('/files/:filename', (req, res) => {
-    gfs.files.findOne({filename: req.params.filename}, (err, file) => {
-        if(!file || file.length === 0){
-            return res.status(404).json({
-                err: 'No file exists'
-            })
-        }
-        return res.json(file)
-    }) 
-})
+app.options('/image/:filename', cors())
 
 app.get('/image/:filename', (req, res) => {
     gfs.files.findOne({filename: req.params.filename}, (err, file) => {
