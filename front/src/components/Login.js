@@ -128,8 +128,8 @@ class Login extends Component {
           loginOption = <div className='loginRegister'>
             <h1 className="headers">Login</h1>
               <div>
-                <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} />
-                <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" />
+                <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
+                <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
                 <button onClick={this.handleLoginButtonClick}>Login</button>
               </div>
     
@@ -138,10 +138,10 @@ class Login extends Component {
           loginOption = <div className='loginRegister'>
             <h1 className="headers">Register</h1>
             <div>
-              <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} />
-              <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" />
-              <input onChange={this.handleTextBoxOnChange} name="confirmPassword" type="password" placeholder="Confirm Password" />
-              <p>Password must be a minimum of eight characters, at least one letter and one number.</p>
+              <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
+              <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
+              <input onChange={this.handleTextBoxOnChange} name="confirmPassword" type="password" placeholder="Confirm Password" /><br/>
+              <p className="spacing">Password must be a minimum of eight characters, at least one letter and one number.</p>
               <button onClick={this.validateEmail}>Register</button>
             </div>
     

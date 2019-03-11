@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './head_logo.jpg'
+
 
 class Menu extends Component{
     render(){
@@ -12,25 +14,25 @@ class Menu extends Component{
 
     if(this.props.isAuthenticated){
       MenuItem = authenticatedUser.map((item, index) => {
-          return <li key={index}><Link to={item.link} className="nav-item nav-link">{item.name}</Link></li>
+          return <li key={index}><Link to={item.link} className="nav-link">{item.name}</Link></li>
       })}
     else{MenuItem = nonAuthenticatedUser.map((item, index) => {
-     return <li key={index} className="nav-item nav-link" ><Link to={'/'}>Login</Link></li>
+     return <li key={index} className="nav-link" ><Link to={'/'}>Login</Link></li>
     })
     }
         return(
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark">
-      <li><Link to={'/profile'} className="navbar-brand">The Profile Dashboard</Link></li>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <li><Link to={'/profile'} className="navbar-brand"><img src={require('./head_logo.jpg')} className="logo" alt='logo'/>The Profile Dashboard</Link></li>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
-  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div className="navbar-nav">
-      <ul className="navbar-nav mr-auto">
+  <div className="collapse navbar-collapse" id="navbarNav">
+    
+      <ul className="navbar-nav mr-auto flex-nowrap">
       {MenuItem}
       </ul>
-    </div>
+    
   </div>
   </nav>
 </div>

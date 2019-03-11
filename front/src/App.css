@@ -14,3 +14,25 @@ html {
 }
 
 .nav-item .nav-link a{color:white !important;}
+
+.logo{
+  height: 37px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.navbar-nav{
+  margin-bottom: 4px !important;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.spacing{
+  margin-top: 6px;
+
+}
