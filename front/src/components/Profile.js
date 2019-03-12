@@ -55,6 +55,7 @@ class Profile extends Component{
           })
           .then(res => {
               console.log(res)
+              this.fetchProfiles()
           })
       }
 
@@ -64,7 +65,6 @@ class Profile extends Component{
         axios.post('https://theprofiledashboardserver.herokuapp.com/profile', {
         profile
         })
-        this.render()
       }
 
 
