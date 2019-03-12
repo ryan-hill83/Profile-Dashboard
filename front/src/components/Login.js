@@ -33,7 +33,7 @@ class Login extends Component {
     
         let user = this.state.newUser
     
-        axios.post('http://localhost:8080/login', {
+        axios.post('https://theprofiledashboardserver.herokuapp.com/login', {
         user
         })
         .then((response) => {
@@ -88,7 +88,7 @@ class Login extends Component {
         let newUser = this.state.newUser
     
         if(newUser.confirmPassword === newUser.password){
-          axios.post('http://localhost:8080/registerUser', {
+          axios.post('https://theprofiledashboardserver.herokuapp.com/registerUser', {
           newUser
           })
           .then((response) => {
@@ -126,7 +126,7 @@ class Login extends Component {
     
         if(this.state.login === true){
           loginOption = <div className='loginRegister'>
-            <h1 className="headers">Login</h1>
+            <h1 className="spacing">Login</h1>
               <div>
                 <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
                 <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
@@ -136,7 +136,7 @@ class Login extends Component {
           </div>
         } else {
           loginOption = <div className='loginRegister'>
-            <h1 className="headers">Register</h1>
+            <h1 className="spacing">Register</h1>
             <div>
               <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
               <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>

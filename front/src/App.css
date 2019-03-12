@@ -33,6 +33,12 @@ html {
 }
 
 .spacing{
-  margin-top: 6px;
+  margin-top: 10px;
+}
 
+.boxes{
+  display: flex;
+  margin-top: 17.5px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  padding: 40px 60px 40px 60px;
 }

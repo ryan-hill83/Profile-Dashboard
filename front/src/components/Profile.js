@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const ALL_PROFILES_URL = 'http://localhost:8080/profiles'
+const ALL_PROFILES_URL = 'https://theprofiledashboardserver.herokuapp.com/profiles'
 
 class Profile extends Component{
 
@@ -48,7 +48,7 @@ class Profile extends Component{
       fileUploadHandler = () => {
           const fd = new FormData()
           fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-          axios.post('http://localhost:8080/upload', fd, {
+          axios.post('https://theprofiledashboardserver.herokuapp.com/upload', fd, {
               onUploadProgress: progressEvent => {
                   console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
               }
@@ -61,7 +61,7 @@ class Profile extends Component{
       handleSubmitButtonClick = () => {
         this.fileUploadHandler()
         let profile = this.state.profile
-        axios.post('http://localhost:8080/profile', {
+        axios.post('https://theprofiledashboardserver.herokuapp.com/profile', {
         profile
         })
         this.render()
@@ -72,20 +72,20 @@ class Profile extends Component{
       let user = this.props.user
       let allProfilesFiltered = this.state.profiles.map((profile, index) => {
             if(profile.user === user._id){
-        return <li key={index}>
+        return <div className="boxes"><li key={index}>
         <h3>{profile.name}</h3>
-        <img key={index} src={'http://localhost:8080/image/' + profile.filename}/>
+        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename}/>
         <h3>{profile.description}</h3>
-      </li>} })
+      </li></div>} })
   
 
         return(
-        <div>
-            <p>Name</p>
+        <div className="centered">
+            <h4 className="spacing">Name</h4>
             <input type="text" name = "name" placeholder="Name" onChange={this.handleTextBoxOnChange}/>
-            <p>Profile Picture</p>
+            <h4 className="spacing">Profile Picture</h4>
             <input type="file" name = "image" onChange={this.fileSelectedHandler}/>
-            <p>Description</p>
+            <h4 className="spacing">Description</h4>
             <input type="text" name = "description" placeholder="Name" onChange={this.handleTextBoxOnChange}/><br/>
             <button onClick={this.handleSubmitButtonClick}>Submit</button>
             {allProfilesFiltered}
