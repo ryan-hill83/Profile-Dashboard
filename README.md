@@ -6,7 +6,7 @@ This is a MERN stack application that allows users to register, login, create a 
 
 ### Live URL ###
 
-https://theprofiledashboard.herokuapp.com
+https://theprofiledashboard.herokuapp.com <br/>
 (This site will take some time to load due to "sleep mode" on the free heroku account)
 
 ### Front End ###
