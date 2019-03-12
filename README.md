@@ -18,3 +18,5 @@ The front end of this project was built with React, Redux, Bootstrap, and Axios.
 The back end of this project was built with Node.Js, MongoDB, Express. It also includes Bcrypt for password encryption, Mongoose to connect with the MongoDB MLabs database, and Gridfs + Multer for uploading the profile pictures to the database.
 
 ### Demo ###
+
+![Profile Creation](https://github.com/rgawick/Profile-Dashboard/blob/master/profile_dashboard.gif)
