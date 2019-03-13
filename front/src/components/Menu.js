@@ -17,7 +17,7 @@ class Menu extends Component{
           return <li key={index}><Link to={item.link} className="nav-link">{item.name}</Link></li>
       })}
     else{MenuItem = nonAuthenticatedUser.map((item, index) => {
-     return <li key={index} className="nav-link" ><Link to={'/'}>Login</Link></li>
+     return <li key={index}><Link to={'/'} className="nav-link">Login</Link></li>
     })
     }
         return(
