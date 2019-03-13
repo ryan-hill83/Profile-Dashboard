@@ -2,12 +2,12 @@
 
 Created by [Ryan Gawick](https://github.com/rgawick)
 
-This is a MERN stack application that allows users to register, login, create a profile and view all profiles that have been created. It also allows the user to upload a profile picture to the MongoDB database.
+This is a MERN stack application that allows users to register, login, create a profile and view all profiles that have been created. It also allows the user to upload a profile picture to the MongoDB database and is mobile responsive.
 
 ### Live URL ###
 
-https://theprofiledashboard.herokuapp.com
-(Will take some time to load due to "sleep mode" on the free Heroku account)
+https://theprofiledashboard.herokuapp.com <br/>
+(This site will take some time to load due to "sleep mode" on the free heroku account)
 
 ### Front End ###
 
@@ -18,3 +18,5 @@ The front end of this project was built with React, Redux, Bootstrap, and Axios.
 The back end of this project was built with Node.Js, MongoDB, Express. It also includes Bcrypt for password encryption, Mongoose to connect with the MongoDB MLabs database, and Gridfs + Multer for uploading the profile pictures to the database.
 
 ### Demo ###
+
+![Profile Creation](https://github.com/rgawick/Profile-Dashboard/blob/master/profile_dashboard.gif)
