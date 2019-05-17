@@ -4,6 +4,10 @@ html {
   background-color: #ecf0f4;
 }
 
+button {
+  font-family: 'Oswald', sans-serif !important;
+}
+
 
 #root {
   background-color: #ecf0f4; 
@@ -11,9 +15,12 @@ html {
 
 .navbar{
   background-color: #3b5997 !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 1.2em !important;
 }
 
-.nav-item .nav-link a{color:white !important;}
+.nav-item .nav-link a{color:white !important;
+  }
 
 .logo{
   height: 37px;
@@ -34,6 +41,8 @@ html {
 
 .spacing{
   margin-top: 10px;
+  font-family: 'Oswald', sans-serif !important;
+  color: #3b5997 !important;
 }
 
 .boxes{

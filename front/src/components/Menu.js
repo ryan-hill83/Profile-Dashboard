@@ -47,7 +47,3 @@ const mapStateToProps = state => {
   }
 }
 export default connect(mapStateToProps)(withRouter(Menu))
-
-{/* <li><Link to={'/'} className="nav-item nav-link">Login</Link></li>
-      <li><Link to={'/profile'} className="nav-item nav-link">My Profile</Link></li>
-      <li><Link to={'/profiles'} className="nav-item nav-link">All Profiles</Link></li> */}

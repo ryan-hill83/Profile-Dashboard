@@ -126,7 +126,7 @@ class Login extends Component {
     
         if(this.state.login === true){
           loginOption = <div className='loginRegister'>
-            <h1 className="spacing">Login</h1>
+            <h1 className="spacing">Welcome to The Profile Dashboard!</h1>
               <div>
                 <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
                 <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
