@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import '../App.css'
+import './people.jpg'
 
 class Login extends Component {
 
@@ -119,18 +120,18 @@ class Login extends Component {
         }
     
         if(this.state.login === true){
-          loginRegisterButton = <button className="loginRegisterButton" onClick={this.toggleRegister}><u>Need to register?</u></button>
+          loginRegisterButton = <button className="loginRegisterButton spacing" onClick={this.toggleRegister}>Need to Register?</button>
         } else {
-          loginRegisterButton = <button className="loginRegisterButton" onClick={this.toggleRegister}>Click to <u>Login</u></button>
+          loginRegisterButton = <button className="loginRegisterButton spacing" onClick={this.toggleRegister}>Click to <u>Login</u></button>
         }
     
         if(this.state.login === true){
           loginOption = <div className='loginRegister'>
             <h1 className="spacing">Welcome to The Profile Dashboard!</h1>
               <div>
-                <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
-                <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
-                <button onClick={this.handleLoginButtonClick}>Login</button>
+                <input className="spacing" type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} size="35"/><br/>
+                <input className="spacing" onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" size="35"/><br/>
+                <button className="spacing" onClick={this.handleLoginButtonClick}>Login</button>
               </div>
     
           </div>
@@ -138,18 +139,18 @@ class Login extends Component {
           loginOption = <div className='loginRegister'>
             <h1 className="spacing">Register</h1>
             <div>
-              <input type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} /><br/>
-              <input onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" /><br/>
-              <input onChange={this.handleTextBoxOnChange} name="confirmPassword" type="password" placeholder="Confirm Password" /><br/>
+              <input className="spacing" type="email" name = "email" placeholder="Enter Email" onChange={this.handleTextBoxOnChange} size="35"/><br/>
+              <input className="spacing" onChange={this.handleTextBoxOnChange} name="password" type="password" placeholder="Enter Password" size="35"/><br/>
+              <input className="spacing" onChange={this.handleTextBoxOnChange} name="confirmPassword" type="password" placeholder="Confirm Password" size="35"/><br/>
               <p className="spacing">Password must be a minimum of eight characters, at least one letter and one number.</p>
-              <button onClick={this.validateEmail}>Register</button>
+              <button className="spacing" onClick={this.validateEmail}>Register</button>
             </div>
     
           </div>
         }
     
         return (
-            <div className='centered'>
+            <div className='centered login-bg'>
               {loginOption}
               {message}
               {loginRegisterButton}

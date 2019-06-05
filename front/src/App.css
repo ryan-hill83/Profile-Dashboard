@@ -8,6 +8,11 @@ button {
   font-family: 'Oswald', sans-serif !important;
 }
 
+button:hover{
+  background-color: #3b5997 !important;
+  color: white !important;
+}
+
 
 #root {
   background-color: #ecf0f4; 
@@ -26,6 +31,13 @@ button {
   height: 37px;
   width: 40px;
   margin-right: 5px;
+}
+
+.people{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
 }
 
 .navbar-nav{
@@ -50,4 +62,20 @@ button {
   margin-top: 17.5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   padding: 40px 60px 40px 60px;
+}
+
+.login-bg{
+  height: 95vh;
+  overflow: auto;
+  background-image:url('./components/people.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position: bottom center;
+  background-size: 100%;
+}
+
+@media only screen and (max-width: 414px){
+.login-bg{
+  height: 92vh !important;
+}
 }
