@@ -10,7 +10,7 @@ button {
 
 button:hover{
   background-color: #3b5997 !important;
-  color: white !important;
+  color: #ced6e5 !important;
 }
 
 
@@ -74,8 +74,19 @@ button:hover{
   background-size: 100%;
 }
 
+.logout-btn {
+  background-color: #3b5997 !important;
+  border: none;
+  color: #9daccc !important;
+}
+
+/* .nav-link:hover{
+  color: white !important;
+} */
+
+
 @media only screen and (max-width: 414px){
 .login-bg{
-  height: 92vh !important;
+  height: 85vh !important;
 }
 }
