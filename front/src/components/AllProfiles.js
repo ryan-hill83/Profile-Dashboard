@@ -28,9 +28,9 @@ render(){
 
     allProfiles = this.state.profiles.map((profile, index) => {
         
-        return <div className="boxes"><li key={index}>
+        return <div key={`box${index}`} className="boxes"><li>
         <h3>{profile.name}</h3>
-        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename}/>
+        <img key={`pic${index}`} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename} alt="profile-pic"/>
         <h3>{profile.description}</h3>
         </li>
         </div>

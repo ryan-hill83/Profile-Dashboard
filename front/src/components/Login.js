@@ -38,7 +38,6 @@ class Login extends Component {
         user
         })
         .then((response) => {
-          console.log(response)
           this.setState({
             message : response.data.message
           })

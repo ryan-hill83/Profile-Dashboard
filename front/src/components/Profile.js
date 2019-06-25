@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 const ALL_PROFILES_URL = 'https://theprofiledashboardserver.herokuapp.com/profiles'
 
@@ -72,11 +71,11 @@ class Profile extends Component{
       let user = this.props.user
       let allProfilesFiltered = this.state.profiles.map((profile, index) => {
             if(profile.user === user._id){
-        return <div className="boxes"><li key={index}>
+        return <div key={index} className="boxes"><li>
         <h3>{profile.name}</h3>
-        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename}/>
+        <img key={index} src={'https://theprofiledashboardserver.herokuapp.com/image/' + profile.filename} alt="profile-pic"/>
         <h3>{profile.description}</h3>
-      </li></div>} })
+      </li></div>} else return null; })
   
 
         return(
