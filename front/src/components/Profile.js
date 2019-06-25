@@ -85,7 +85,7 @@ class Profile extends Component{
             <h4 className="spacing">Profile Picture</h4>
             <input type="file" name = "image" onChange={this.fileSelectedHandler}/>
             <h4 className="spacing">Description</h4>
-            <input type="text" name = "description" placeholder="Name" onChange={this.handleTextBoxOnChange}/><br/>
+            <input type="text" name = "description" placeholder="Description" onChange={this.handleTextBoxOnChange}/><br/>
             <button onClick={this.handleSubmitButtonClick}>Submit</button>
             {allProfilesFiltered}
         </div>

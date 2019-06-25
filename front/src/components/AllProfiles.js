@@ -23,10 +23,8 @@ fetchProfiles = () => {
 }
 
 render(){
-        
-    let allProfiles = null
 
-    allProfiles = this.state.profiles.map((profile, index) => {
+    let allProfiles = this.state.profiles.map((profile, index) => {
         
         return <div key={`box${index}`} className="boxes"><li>
         <h3>{profile.name}</h3>
