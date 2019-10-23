@@ -1,7 +1,5 @@
 # The Profile Dashboard
 
-Created by [Ryan Gawick](https://github.com/rgawick)
-
 This is a MERN stack application that allows users to register, login, create a profile and view all profiles that have been created. It also allows the user to upload a profile picture to the MongoDB database and is mobile responsive.
 
 ### Live URL ###
