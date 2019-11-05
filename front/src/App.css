@@ -1,0 +1,92 @@
+li {list-style-type: none;}
+
+html {
+  background-color: #ecf0f4;
+}
+
+button {
+  font-family: 'Oswald', sans-serif !important;
+}
+
+button:hover{
+  background-color: #3b5997 !important;
+  color: #ced6e5 !important;
+}
+
+
+#root {
+  background-color: #ecf0f4; 
+}
+
+.navbar{
+  background-color: #3b5997 !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 1.2em !important;
+}
+
+.nav-item .nav-link a{color:white !important;
+  }
+
+.logo{
+  height: 37px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.people{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
+}
+
+.navbar-nav{
+  margin-bottom: 4px !important;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.spacing{
+  margin-top: 10px;
+  font-family: 'Oswald', sans-serif !important;
+  color: #3b5997 !important;
+}
+
+.boxes{
+  display: flex;
+  margin-top: 17.5px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  padding: 40px 60px 40px 60px;
+}
+
+.login-bg{
+  height: 95vh;
+  overflow: auto;
+  background-image:url('./components/people.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position: bottom center;
+  background-size: 100%;
+}
+
+.logout-btn {
+  background-color: #3b5997 !important;
+  border: none;
+  color: #9daccc !important;
+}
+
+/* .nav-link:hover{
+  color: white !important;
+} */
+
+
+@media only screen and (max-width: 414px){
+.login-bg{
+  height: 85vh !important;
+}
+}
